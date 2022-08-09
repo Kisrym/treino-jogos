@@ -59,7 +59,7 @@ int main(){
             chutes_errados.push_back(chute);
         }
 
-    } while (nao_acertou() && nao_enforcou());
+    } while (nao_acertou() && chutes_errados.size() < 5);
 
     cout << endl << "Fim de jogo!" << endl;
     if (nao_acertou()) { cout << "Voce perdeu! Tente novamente.\n"; }
@@ -93,10 +93,6 @@ bool nao_acertou(){
         }
     }
     return false;
-}
-
-bool nao_enforcou(){
-    return chutes_errados.size() < 5;
 }
 
 string sortear_palavra() {
