@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <map>
+#include <time.h>
 using namespace std;
 
 string sortear_palavra();
