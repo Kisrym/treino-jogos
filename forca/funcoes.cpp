@@ -7,10 +7,9 @@
 #include <time.h>
 using namespace std;
 
-string sortear_palavra();
+// Retirou daqui as variáveis globais
 
-extern const string PALAVRA_SECRETA = sortear_palavra();
-extern map <char, bool> chutou;
+// Se uma variável na função for alterada, é preciso utilizar ponteiros para acontecer a alteração. (porque eles são os endereços de memória)
 
 string sortear_palavra() {
     ifstream arquivo;
@@ -72,7 +71,7 @@ void add_file() {
     else {cout << "Nao foi possivel acessar o banco de palavras." << endl; exit(0);}
 }
 
-bool letra_existe(char letra){
+bool letra_existe(char& letra, string PALAVRA_SECRETA){
     for (char l : PALAVRA_SECRETA){ // como se fosse um for each
         if (letra == l){
             return true;
@@ -81,7 +80,7 @@ bool letra_existe(char letra){
     return false;
 }
 
-bool nao_acertou(){
+bool nao_acertou(string PALAVRA_SECRETA, map <char, bool>& chutou){ // o & serve para chamar a referência (ponteiros) da variável, em vez de copiá-la e colá-la aqui. Ocupando menos memória.
     for (char l : PALAVRA_SECRETA){
         if (!chutou[l]){
             return true;

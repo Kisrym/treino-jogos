@@ -1,13 +1,12 @@
 #include <iostream>
 #include <string.h> // mesmo não precisando incluir, por causa do iostream, é recomendável sempre fazer isso
 #include <map> // famoso dicionário
-#include <time.h>
 #include <vector>
 
-#include "headers\letra_existe.hpp" // Esse arquivo possui somente as definições de função
-#include "headers\add_file.hpp"
-#include "headers\nao_acertou.hpp"
-#include "headers\sortear_palavra.hpp"
+#include "headers/letra_existe.hpp" // Esse arquivo possui somente as definições de função
+#include "headers/add_file.hpp"
+#include "headers/nao_acertou.hpp"
+#include "headers/sortear_palavra.hpp"
 using namespace std;
 
 
@@ -48,17 +47,17 @@ int main(){
 
         chutou[chute] = true;
 
-        if (letra_existe(chute)){
+        if (letra_existe(chute, PALAVRA_SECRETA)){
             cout << "Voce acertou! " << chute << " existe na palavra secreta." << endl;
         } else {
             cout << "Voce errou! " << chute << " nao existe na palavra secreta." << endl;
             chutes_errados.push_back(chute);
         }
 
-    } while (nao_acertou() && chutes_errados.size() < 5);
+    } while (nao_acertou(PALAVRA_SECRETA, chutou) && chutes_errados.size() < 5);
 
     cout << endl << "Fim de jogo!" << endl;
-    if (nao_acertou()) { cout << "Voce perdeu! Tente novamente.\n"; }
+    if (nao_acertou(PALAVRA_SECRETA, chutou)) { cout << "Voce perdeu! Tente novamente.\n"; }
     else {
         cout << "Parabens! Voce acertou a palavra secreta\n";
         cout << "Voce deseja adicionar uma nova palavra ao banco? [S/N]: ";
