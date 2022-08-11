@@ -4,10 +4,10 @@
 #include <time.h>
 #include <vector>
 
-#include "letra_existe.hpp" // Esse arquivo possui somente as definições de função
-#include "add_file.hpp"
-#include "nao_acertou.hpp"
-#include "sortear_palavra.hpp"
+#include "headers\letra_existe.hpp" // Esse arquivo possui somente as definições de função
+#include "headers\add_file.hpp"
+#include "headers\nao_acertou.hpp"
+#include "headers\sortear_palavra.hpp"
 using namespace std;
 
 
