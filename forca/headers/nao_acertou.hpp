@@ -1,4 +1,6 @@
 #pragma once
 #include <string.h>
 #include <map>
-bool nao_acertou(std::string PALAVRA_SECRETA, std::map <char, bool>& chutou);
+namespace Forca{
+	bool nao_acertou(std::string PALAVRA_SECRETA, const std::map <char, bool>& chutou);
+}
